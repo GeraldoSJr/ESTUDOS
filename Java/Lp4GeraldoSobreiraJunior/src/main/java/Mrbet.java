@@ -75,6 +75,10 @@ public class Mrbet {
         return "";
     }
 
+    String verificaTimeEmCampeonato(String codigo, String campeonato){
+        return "";
+    }
+
     String getTime(int i){
         Time objeto = (Time)this.times.get(i);
         return objeto.nome();
