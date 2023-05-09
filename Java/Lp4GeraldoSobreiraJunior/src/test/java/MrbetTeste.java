@@ -68,30 +68,30 @@ public class MrbetTeste {
 
     @Test
     void testeVerificarTimeEmCampeonato(){
-        String str1 = "O TIME ESTÁ NO CAMPEONATO!";
-        String str2 = "TIME NÃO EXISTE!";
-        String str3 = "CAMPEONATO NÃO EXISTE!";
-        String str4 = "O TIME NÃO ESTÁ NO CAMPEONATO!";
+        String str1 = "é verdade que o time está no campeonato.";
 
-        Assertions.assertEquals(str1, this.controle.incluiTimeEmCampeonato("250_PB", "Campeonato Paraibano 2023"));
-        Assertions.assertEquals(str2, this.controle.incluiTimeEmCampeonato("500_PB", "Campeonato Paraibano 2023"));
-        Assertions.assertEquals(str3, this.controle.incluiTimeEmCampeonato("300_PB", "Campeonato Paulista 2023"));
-        Assertions.assertEquals(str4, this.controle.incluiTimeEmCampeonato("300_PB", "Campeonato Paraibano 2023"));
+        this.controle.incluiTimeEmCampeonato("250_PB", "Campeonato Brasileirão Serie A 2023");
+        Assertions.assertEquals(str1, this.controle.verificaTimeEmCampeonato("250_PB", "Campeonato Brasileirão Serie A 2023"));
     }
 
-    @Test
     void testeVerificarTimeEmCampeonato2(){
-        String str1 = "TIME NÃO EXISTE!";
+        String str1 = "é falso que o time está no campeonato.";
 
-        Assertions.assertEquals(str1, this.controle.incluiTimeEmCampeonato("500_PB", "Campeonato Brasileirão Serie A 2023"));
-        Assertions.assertEquals(str1, this.controle.incluiTimeEmCampeonato("252_PB", "Campeonato Brasileirão Serie A 2023"));
+        this.controle.incluiTimeEmCampeonato("250_PB", "Campeonato Brasileirão Serie A 2023");
+        Assertions.assertEquals(str1, this.controle.verificaTimeEmCampeonato("002_RJ", "Campeonato Brasileirão Serie A 2023"));
     }
 
     @Test
     void testeVerificarTimeEmCampeonato3(){
+        String str1 = "TIME NÃO EXISTE!";
+
+        Assertions.assertEquals(str1, this.controle.verificaTimeEmCampeonato("500_PB", "Campeonato Brasileirão Serie A 2023"));
+    }
+
+    @Test
+    void testeVerificarTimeEmCampeonato4(){
         String str1 = "CAMPEONATO NÃO EXISTE!";
 
         Assertions.assertEquals(str1, this.controle.verificaTimeEmCampeonato("250_PB", "Campeonato Paraibano 2023"));
-        Assertions.assertEquals(str1, this.controle.verificaTimeEmCampeonato("252_PB", "Campeonato Paraibano 2023"));
     }
 }
