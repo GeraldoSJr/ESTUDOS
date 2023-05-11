@@ -91,7 +91,18 @@ public class MrbetTeste {
     @Test
     void testeVerificarTimeEmCampeonato4(){
         String str1 = "CAMPEONATO NÃO EXISTE!";
-
         Assertions.assertEquals(str1, this.controle.verificaTimeEmCampeonato("250_PB", "Campeonato Paraibano 2023"));
+    }
+
+    @Test
+    void testeTentarSorte(){
+        String str1 = "APOSTA REGISTRADA!";
+        Assertions.assertEquals(str1, this.controle.tentarSorte("250_PB", "Campeonato Paraibano 2023", 2, "R$30,00"));
+    }
+
+    @Test
+    void testeTentarSorte(){
+        String str1 = "APOSTA NÃO REGISTRADA!";
+        Assertions.assertEquals(str1, this.controle.tentarSorte("250_PB", "Campeonato Paraibano 2023", 22, "R$30,00"));
     }
 }
