@@ -24,12 +24,12 @@ public class MrbetTeste {
 
     @Test
     void testeCadastraCampeonato1(){
-        Assertions.assertEquals(this.retorno3, "CAMPEONATO ADICIONADO!");
+        Assertions.assertEquals(this.retorno5, "CAMPEONATO ADICIONADO!");
     }
 
     @Test
     void testeCadastraCampeonato2(){
-        Assertions.assertEquals(this.retorno4, "CAMPEONATO JÁ EXISTE!");
+        Assertions.assertEquals(this.retorno6, "CAMPEONATO JÁ EXISTE!");
     }
 
     @Test
@@ -37,8 +37,6 @@ public class MrbetTeste {
         String str1 = "TIME INCLUÍDO NO CAMPEONATO!";
 
         Assertions.assertEquals(str1, this.controle.incluiTimeEmCampeonato("250_PB", "Campeonato Brasileirão Serie A 2023"));
-        Assertions.assertEquals(str1, this.controle.incluiTimeEmCampeonato("252_PB", "Campeonato Brasileirão Serie A 2023"));
-        Assertions.assertEquals(str1, this.controle.incluiTimeEmCampeonato("252_PB", "Campeonato Brasileirão Serie A 2023"));
     }
 
     @Test
@@ -46,7 +44,6 @@ public class MrbetTeste {
         String str1 = "TIME NÃO EXISTE!";
 
         Assertions.assertEquals(str1, this.controle.incluiTimeEmCampeonato("500_PB", "Campeonato Brasileirão Serie A 2023"));
-        Assertions.assertEquals(str1, this.controle.incluiTimeEmCampeonato("252_PB", "Campeonato Brasileirão Serie A 2023"));
     }
 
     @Test
@@ -74,6 +71,7 @@ public class MrbetTeste {
         Assertions.assertEquals(str1, this.controle.verificaTimeEmCampeonato("250_PB", "Campeonato Brasileirão Serie A 2023"));
     }
 
+    @Test
     void testeVerificarTimeEmCampeonato2(){
         String str1 = "é falso que o time está no campeonato.";
 
@@ -97,12 +95,17 @@ public class MrbetTeste {
     @Test
     void testeTentarSorte(){
         String str1 = "APOSTA REGISTRADA!";
-        Assertions.assertEquals(str1, this.controle.tentarSorte("250_PB", "Campeonato Paraibano 2023", 2, "R$30,00"));
+        Assertions.assertEquals(str1, this.controle.tentarSorte("250_PB", "Campeonato Brasileirão Serie A 2023", 2, "R$30,00"));
     }
 
     @Test
-    void testeTentarSorte(){
+    void testeTentarSorte2(){
         String str1 = "APOSTA NÃO REGISTRADA!";
-        Assertions.assertEquals(str1, this.controle.tentarSorte("250_PB", "Campeonato Paraibano 2023", 22, "R$30,00"));
+        Assertions.assertEquals(str1, this.controle.tentarSorte("250_PB", "Campeonato Brasileirão Serie A 2023", 22, "R$30,00"));
+    }
+    @Test
+    void testeTentarSorte3(){
+        String str1 = "TIME NÃO EXISTE!";
+        Assertions.assertEquals(str1, this.controle.tentarSorte("260_PB", "Campeonato Brasileirão Serie A 2023", 22, "R$30,00"));
     }
 }

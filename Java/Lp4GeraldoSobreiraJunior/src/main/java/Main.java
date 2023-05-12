@@ -99,7 +99,15 @@ public class Main {
 
     }
     public static void tentarSorte(Mrbet mrbet, Scanner sc){
-
+        System.out.println("Código: ");
+        String codigo = sc.nextLine();
+        System.out.println("Campeonato: ");
+        String campeonato = sc.nextLine();
+        System.out.println("Colocação: ");
+        int colocacao = sc.nextInt();
+        System.out.println("Valor: ");
+        String valor = sc.nextLine();
+        mrbet.tentarSorte(codigo, campeonato, colocacao, valor);
     }
     private static void sai() {
         System.out.println("\nVlw flw o/");
